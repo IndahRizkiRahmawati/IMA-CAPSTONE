@@ -2,6 +2,18 @@
   font-family: "Noto Serif Display", serif;
 }
 
+#bodylogin {
+  background-image: url("/static/gambar barbel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #292929;
+}
+
 .section {
   padding: 1rem 1.5rem;
   max-width: 750px;
@@ -10,11 +22,22 @@
 
 .title {
   font-weight: 800;
-  font-size: 5rem;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 2rem;
+}
+.box {
+  max-height: 720px;
+  max-width: 720px;
+  margin: auto;
+  padding: 100px;
+}
+
+.has-icons-left {
+  width: 100%;
 }
 
 .help {
@@ -29,6 +52,122 @@ input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+#bodylp {
+  background-image: url("/static/gambar barbel.jpg");
+  height: 500vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+#headerlp {
+  margin-bottom: 15%;
+  padding-top: 20%;
+}
+
+.headerlp {
+  color: white;
+}
+
+.barlp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  background-color: #292929;
+  flex-direction: column;
+}
+
+.habout {
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.isiabout {
+  text-align: justify;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgabout {
+  max-width: 400px;
+  max-height: 400px;
+  margin-right: 20px;
+}
+
+.pabout {
+  color: white;
+  max-width: 600px;
+  margin-bottom: 10%;
+}
+
+#hprogram {
+  color: white;
+  margin: 5% 0 5%;
+}
+
+#card {
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+  background-color: #292929;
+  color: white;
+}
+.hsaran {
+  color: white;
+  margin: 5% 0 5%;
+}
+
+#forms {
+  width: 80%;
+  text-align: center;
+}
+
+#submits {
+  display: flex;
+  justify-content: center;
+}
+
+#buttons {
+  color: white;
+  margin: 10px 0 5%;
+}
+
+.hteam {
+  color: white;
+  margin: 5% 0 5%;
+}
+
+#footerlp {
+  margin-top: 5%;
+  padding: 3%;
+  background-color: #292929;
+  position: relative;
+  text-align: center;
+}
+
+#footericon {
+  font-size: 40px;
+}
+
+#footerluv {
+  background-color: #292929;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
 .image img {
   object-fit: cover;
   width: 100%;
@@ -38,6 +177,7 @@ input::-webkit-calendar-picker-indicator {
 .logo-text {
   font-family: "Stylish", sans-serif;
   font-size: larger;
+  color: #ffffff;
 }
 
 .level-item.button {
@@ -49,4 +189,8 @@ input::-webkit-calendar-picker-indicator {
 .level-item.button:hover {
   background-color: #ffffff;
   color: #ff4500;
+}
+
+.has-text-centered {
+  margin-top: 20px;
 }
