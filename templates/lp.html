@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Log In | SWEETER</title>
+    <title>Log In | IMA Project</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -24,22 +24,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet" />
   </head>
-  <body
-    style="
-      background-image: url('/static/gambar barbel.jpg');
-      height: 500vh;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      min-height: 100vh;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 0;
-    ">
+  <body id="bodylp">
     <!-- Navbar -->
-    <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow" style="background-color: #292929">
+    <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow">
       <div class="container">
         <a class="navbar-brand" href="#">IMA Project</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,18 +67,18 @@
 
     <!-- Header -->
     <div>
-      <section style="margin-bottom: 15%; padding-top: 20%" class="jumbotron text-center">
-        <h1 style="color: white" class="display-4">Raih Hidup Sehat Dengan Bentuk Tubuh Impianmu</h1>
+      <section id="headerlp" class="jumbotron text-center">
+        <h1 class="headerlp display-4">Raih Hidup Sehat Dengan Bentuk Tubuh Impianmu</h1>
       </section>
     </div>
     <!-- Akhir Header -->
 
     <!-- About -->
-    <div style="display: flex; align-items: center; justify-content: center; height: 80%; max-height: 600px; background-color: #292929; flex-direction: column">
-  <h1 style="color: white; margin-top: 5%; margin-bottom: 2%" class="display-4">About</h1>
-  <div style="text-align: justify; max-width: 800px; display: flex; flex-direction: row; align-items: center; justify-content: center">
-    <img style="max-width: 400px; max-height: 400px; margin-right: 20px" src="\static\fitnes.png" alt="" />
-    <div style="color: white; max-width: 600px; margin-bottom: 10%">
+    <div class="barlp" style="max-height: 600px;">
+  <h1 class="habout display-4">About</h1>
+  <div class="isiabout">
+    <img class="imgabout" src="\static\fitnes.png" alt="" />
+    <div class="pabout">
       <p>
         Dalam mencapai gaya hidup sehat, langkah-langkah kunci melibatkan peningkatan kesadaran akan kebugaran dan kesehatan secara umum. Hal ini melibatkan pemahaman akan manfaat aktivitas fisik terhadap tubuh dan pikiran. Selain itu,
         memberikan panduan latihan yang sesuai adalah langkah penting dalam memotivasi dan membimbing individu menuju kebugaran optimal. Informasi yang jelas tentang kebugaran, termasuk penjelasan tentang risiko kekurangan aktivitas
@@ -107,24 +94,21 @@
     <!-- Program -->
     <div class="container mt-5">
   <section class="jumbotron text-center">
-    <h1 style="color: white; margin: 5% 0 5%" class="display-4">Program</h1>
+    <h1 id="hprogram" class="display-4">Program</h1>
     <div class="row justify-content-around">
       <div class="col-md-4 mb-4">
-        <div class="card" style="box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);">
+        <div class="card" id="card">
           <img src="\static\test.png" class="card-img-top" alt="..." />
-          <div class="card-body"></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
-        <div class="card" style="box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);">
+        <div class="card" id="card">
           <img src="\static\test.png" class="card-img-top" alt="..." />
-          <div class="card-body"></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
-        <div class="card" style="box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);">
+        <div class="card" id="card">
           <img src="\static\test.png" class="card-img-top" alt="..." />
-          <div class="card-body"></div>
         </div>
       </div>
     </div>
@@ -133,9 +117,9 @@
     <!-- Akhir Program -->
 
     <!-- Kotak Saran -->
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; max-height: 500px; background-color: #292929; margin-top: 5%">
-      <h1 style="color: white; margin: 5% 0 5%" class="display-4">Suggestion</h1>
-      <div style="width: 80%; text-align: center">
+    <div class="barlp" style="max-height: 500px;">
+      <h1 class="hsaran display-4">Suggestion</h1>
+      <div id="forms">
         <div class="mb-3">
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" />
         </div>
@@ -145,8 +129,8 @@
         <div class="mb-3">
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="message"></textarea>
         </div>
-        <div style="display: flex; justify-content: center">
-          <button type="button" class="btn btn-danger" style="color: white; margin: 10px 0 5%">Submit</button>
+        <div id="submits">
+          <button type="button" class="btn btn-danger" id="buttons">Submit</button>
         </div>
       </div>
     </div>
@@ -155,28 +139,28 @@
     <!-- Teams -->
     <div class="container mt-5">
       <section class="jumbotron text-center">
-        <h1 style="color: white; margin: 5% 0 5%" class="display-4">Teams</h1>
+        <h1 class="hteam display-4">Teams</h1>
         <div class="row justify-content-around">
           <div class="col-md-4 mb-4">
-            <div class="card">
+            <div class="card" id="card">
               <img src="\static\test.png" class="card-img-top" alt="..." />
-              <div class="card-body" style="background-color: #292929; color: white">
+              <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <div class="card">
+            <div class="card" id="card">
               <img src="\static\test.png" class="card-img-top" alt="..." />
-              <div class="card-body" style="background-color: #292929; color: white">
+              <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <div class="card">
+            <div class="card" id="card">
               <img src="\static\test.png" class="card-img-top" alt="..." />
-              <div class="card-body" style="background-color: #292929; color: white">
+              <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
             </div>
@@ -186,13 +170,13 @@
     </div>
     <!-- Akhir Teams -->
     <!-- Footer -->
-    <div style="margin-top: 5%; background-color: #292929">
-      <div style="position: relative; text-align: center; margin-top: 3%">
-        <a href="https://www.instagram.com/" class="text-white me-5" style="font-size: 40px"><i class="bi bi-instagram"></i></a>
-        <a href="mailto:your.email@example.com" class="text-white me-5" style="font-size: 40px"><i class="bi bi-envelope"></i></a>
-        <a href="tel:+1234567890" class="text-white" style="font-size: 40px"><i class="bi bi-telephone"></i></a>
+    <div id="footerlp">
+      <div>
+        <a href="https://www.instagram.com/" class="text-white me-5" id="footericon"><i class="bi bi-instagram"></i></a>
+        <a href="mailto:your.email@example.com" class="text-white me-5" id="footericon"><i class="bi bi-envelope"></i></a>
+        <a href="tel:+1234567890" class="text-white" id="footericon"><i class="bi bi-telephone"></i></a>
       </div>
-      <footer class="text-white text-center pb-5 pt-5" style="background-color: #292929; position: relative; bottom: 0; width: 100%">Created with <i class="bi bi-heart-fill text-danger"></i> by IMA</footer>
+      <footer class="text-white text-center pb-5 pt-5" id="footerluv">Created with <i class="bi bi-heart-fill text-danger"></i> by IMA</footer>
     </div>
     <!-- Akhir Footer -->
   </body>

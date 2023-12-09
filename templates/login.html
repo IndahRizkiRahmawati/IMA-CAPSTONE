@@ -167,24 +167,24 @@
       }
     </script>
   </head>
-  <body style="background-image: url('/static/gambar barbel.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; min-height: 100vh">
-    <nav class="navbar is-fixed-top" style="background-color: #38373b" role="navigation" aria-label="main navigation">
+  <body id="bodylogin">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <strong class="logo-text" style="color: #ffffff">IMA Project</strong>
+          <strong class="logo-text">IMA Project</strong>
         </a>
       </div>
     </nav>
 
     <section class="section">
       <div class="container" style="margin: 15%">
-        <div class="box" style="max-height: 720px; max-width: 720px; margin: auto; padding: 100px">
+        <div class="box">
           <article class="media">
             <div class="media-content">
               <div class="content">
-                <h1 class="title" style="font-size: 30px; margin-bottom: 10px">Sign In</h1>
+                <h1 id="hsignin" class="title">Sign In</h1>
                 <div class="field has-addons">
-                  <div class="control has-icons-left" style="width: 100%">
+                  <div class="control has-icons-left">
                     <input id="input-username" class="input" type="text" placeholder="Username" />
                     <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                   </div>
@@ -198,7 +198,7 @@
                 <div id="name" class="is-hidden">
                   <div class="mb-5">
                     <div class="field">
-                      <div class="control has-icons-left" style="width: 100%">
+                      <div class="control has-icons-left">
                         <input id="Name" class="input" type="text" placeholder="Name" />
                         <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                       </div>
@@ -214,7 +214,7 @@
                   <p id="help-password" class="help is-hidden">Untuk kata sandi Anda, silakan masukkan 8-20 karakter, angka, atau karakter khusus berikut (!@#$%^&*)</p>
                 </div>
               </div>
-              <div id="div-sign-in-or-up" class="has-text-centered" style="margin-top: 20px">
+              <div id="div-sign-in-or-up" class="has-text-centered">
                 <nav class="level is-mobile">
                   <button class="level-item button" onclick="sign_in()">Sign In</button>
                   <button class="level-item button is-outlined" onclick="toggle_sign_up()">Register</button>
@@ -224,7 +224,7 @@
               <div id="sign-up-box" class="is-hidden">
                 <div class="mb-5">
                   <div class="field">
-                    <div class="control has-icons-left" style="width: 100%">
+                    <div class="control has-icons-left">
                       <input id="input-password2" class="input" type="password" placeholder="Confirm your password" />
                       <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
                     </div>
