@@ -40,14 +40,15 @@
         }
 
         body{
-        background-color: #6E6C6E;
+        background-color: #292929;
        }
 
         .mybox {
+            color: aliceblue;
             width: 95%;
             max-width: 700px;
             padding: 20px;
-            box-shadow: 0px 0px 10px 0px #38373B;
+            box-shadow: 0px 0px 10px 0px #1c1b1c;
             margin: 20px auto;
         }
         .mybucket {
@@ -79,6 +80,34 @@
         .mybox > li > h2.done {
             text-decoration:line-through
         }
+
+        .custom-btn {
+border-color: #D9CBC4;
+  
+  color: #D9CBC4;
+  transition: background-color 0.3s ease;
+}
+.customadd-btn {
+border-color: #D9CBC4;
+background-color: #D9CBC4;
+  
+  color: #2c1608;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+    border-color: #D9CBC4;
+  background-color: #D9CBC4;
+  color: #332f2f;
+}
+
+.customadd-btn:hover{
+    border-color: #D9CBC4;
+  background-color:#7e7774 ;
+  color: #f5f1f1;
+}
+
+
     </style>
     <script>
         $(document).ready(function () {
@@ -157,6 +186,45 @@
     </script>
 </head>
 <body>
+         <!-- Navbar -->
+         <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow" style="background-color: #292929">
+            <div class="container">
+              <a class="navbar-brand" href="#">IMA Project</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
+                      <li><a class="dropdown-item" href="#">Health Education</a></li>
+                      <li><a class="dropdown-item" href="#">Workout Training</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#suggestion">Suggestion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#teams">Teams</a>
+                  </li>
+                  <li class="nav-item">
+                    <button type="button" class="nav-link btn btn-danger" href="#Login">Login</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!-- Akhir Navbar -->
     <div class="mypic">
         <h1>Activity Tracker</h1>
         <h4>Masukkan kegiatan anda disini!</h4>
@@ -164,24 +232,24 @@
     <div class="mybox">
         <div class="mybucket">
             <input id="bucket" class="form-control" type="text" placeholder="Add your activity here">
-            <button onclick="save_bucket()" type="button" class="btn btn-warning">Add</button>
+            <button onclick="save_bucket()" type="button" class="btn btn-warning customadd-btn">Add</button>
         </div>
     </div>
     <div class="mybox" id="bucket-list">
         <li>
             <h2>✏️ squat jump 20 minutes</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning">Delete</button>
+            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
+            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
         </li>
         <li>
             <h2>✏️ breakfast at 08.00</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning">Delete</button>
+            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
+            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
         </li>
         <li>
             <h2>✏️ walking 45 minutes</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning">Delete</button>
+            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
+            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
         </li>
     </div>
 </body>
