@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/static/style2.css" />
+
+
+
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxs-copyright"></i>
+        <span class="logo_name">IMA Project</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link_name">Dashboard</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Dashboard</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class="bx bx-archive"></i>
+              <span class="link_name">Program</span>
+            </a>
+            <i class="bx bx-chevron-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Program</a></li>
+            <li><a href="#">Activity Tracker</a></li>
+            <li><a href="#">Health Eduction</a></li>
+            <li><a href="#">Workout Training</a></li>
+          </ul>
+        </li>
+
+        <!-- Profile Sidebar -->
+        <li>
+          <div class="profile-details">
+            <div class="profile-content">
+              <img src="/static/profile.jpg" alt="Profile" />
+            </div>
+            <div class="profile-name">
+              <div class="profile-names">Admin</div>
+            </div>
+            <i class="bx bx-log-out"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <div class="home-content">
+        <i class="bx bx-menu"></i>
+        <span class="text">Menu</span>
+      </div>
+    </section>
+    <!-- End Sidebar -->
+
+    <!-- isi konten disini -->
+    <div class="isi">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, harum assumenda consectetur quibusdam expedita fugit consequatur laborum molestiae deserunt. Est aut, modi voluptates autem quasi a dicta. Obcaecati, esse distinctio.</p>
+
+    </div>
+    <!-- End konten -->
+
+    <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+          let arrowParent = e.target.parentElement.parentElement;
+          arrowParent.classList.toggle("showMenu");
+        });
+      }
+
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+    </script>
+  </body>
+</html>
