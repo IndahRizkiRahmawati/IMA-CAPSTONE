@@ -259,32 +259,100 @@
   width: calc(100% - 78px);
 }
 
-.home-section .home-content {
+.home-content {
   height: 60px;
   display: flex;
   align-items: center;
 }
 
-.home-section .home-content .bx-menu,
-.home-section .home-content .text {
+.home-content .bx-menu,
+.home-content .text {
   color: #000000;
   font-size: 35px;
+ 
 }
 
-.home-section .home-content .bx-menu {
+ .home-content .bx-menu {
   margin: 0 15px;
   cursor: pointer;
 }
 
-.home-section .home-content .text {
+.home-content .text {
   font-size: 25px;
   font-weight: 600;
+  
 }
 
-.isi{
-    width: 85%;
+h1{
+    font-size: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+
+.table-wrapper {
+    border-collapse: collapse;
+    max-height: 300px;
+    overflow-y: scroll; 
+    
+  }
+.outer-wrapper{
+    border:2px saddlebrown;
+    box-shadow: 0px 0px 6px rgb(91, 87, 85) ;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+td{
+    
+    padding: 7px;
+    padding-left: 10px;
+}
+th, td {
+    border-bottom: 1px solid rgb(150, 149, 149);
+    align-items: center;
+    overflow: auto;
+}
+th{
+    max-height: fit-content;
+    padding: 7px;
+    position: sticky;
+    top: 0px;
+    background-color: rgb(235, 178, 131);
+    align-items: center;
+    text-align: center;
+}
+button {
+    cursor: pointer;
+    font-size: 14px;
+    width: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+.del {
+  color: #f71e1e;
+    
+}
+  
+button.del:hover {
+    background-color: #f81e1e;
+    color: #ffffff;
+  }
+  .edit{
+    color: blue;
+    margin: 3px;
+  }
+  button.edit:hover {
     background-color: blue;
-    margin-left: 280px;
-    height: 700px;
+    color: #ffffff;
+  }
 
+.gambar-konten{
+  cursor: pointer;
 }
+  
+
+
+
