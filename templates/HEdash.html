@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Dashboard Health Education</title>
     <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />   
     <!-- External CSS -->
-    <link rel="stylesheet" href="/static/style2.css" />
+    <link  href="/static/style3.css" rel="stylesheet" />
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     -->  
   </head>
   <body>
     <!-- Sidebar -->
@@ -63,70 +65,44 @@
         <i class="bx bx-menu"></i>
         <span class="text">Menu</span>
     </div>
-    <h1>Activity Tracker</h1>
-    <!-- isi kontennya disini -->
+    <h1>Health Education</h1>
+     <div class="base-konten">
     <div class="table-container">
      <div class="outer-wrapper">
         <div class="table-wrapper">
             <table>
                 <thead>
                     <th>id</th>
-                    <th>Nama</th>
-                    <th> tanggal</th>
-                    <th>Catatan</th>
+                    <th>Judul</th>
+                    <th style="max-width: 20px;">catatan</th>
+                    <th>Gambar</th>
                     <th>Handle</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>indah</td>
-                        <td>16 sept</td>
-                        <td>latihan bahu</td>
+                        <td>Jump squat</td>
+                        <td >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores ut vitae repudiandae dolore dolorum corrupti sapiente earum quae cumque doloremque distinctio, ipsa, nostrum dolor eligendi similique, sit omnis tempora?</td>
+                        <div class="modal fade" id="imageModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <button type="button" class="closebtn" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Gambar</h5></div>
+                                <div class="modal-body">
+                                   
+                                  <img src="https://img.freepik.com/free-photo/sporty-woman-doing-squats-muscular-fitness-woman-military-sportswear-isolated-white-wall-fitness-healthy-lifestyle-concept_231208-10499.jpg?w=900&t=st=1702376181~exp=1702376781~hmac=1d2ae1a1da03aee201a15840a83f0dc0b01ae88360d0c8d1e0079930da8f63df" alt="Gambar" class="img-fluid">
+                                </div>
+                              </div>
+                            </div>
+                        <td><a href="#" data-toggle="modal" data-target="#imageModal1">squat jump.jpg</a></td>
                         <td> 
-                            <button class="del">Delete</button>
+                            <button class="edit" style="border-radius: 8px;">Edit</button>
+                            <button class="del" style="border-radius: 8px;">Delete</button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ary</td>
-                        <td>7 juni</td>
-                        <td>latihan lengan</td>
-                        <td><button class="del">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>akmal</td>
-                        <td>7 juni</td>
-                        <td>latihan kaki</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>akmal indah ary</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
+                    </tr> 
                 </tbody>
             </table>
 
@@ -134,7 +110,7 @@
 
         </div>
      </div> 
-  
+
     <!-- End konten -->
 
     <script>
@@ -153,5 +129,9 @@
         sidebar.classList.toggle("close");
       });
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     
   </body>
 </html>

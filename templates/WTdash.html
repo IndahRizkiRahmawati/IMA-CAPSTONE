@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Workout Training</title>
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />   
+    <!-- External CSS -->
+    <link  href="/static/style3.css" rel="stylesheet" />
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     -->  
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxs-copyright"></i>
+        <span class="logo_name">IMA Project</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link_name">Dashboard</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Dashboard</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class="bx bx-archive"></i>
+              <span class="link_name">Program</span>
+            </a>
+            <i class="bx bx-chevron-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Program</a></li>
+            <li><a href="#">Activity Tracker</a></li>
+            <li><a href="#">Health Eduction</a></li>
+            <li><a href="#">Workout Training</a></li>
+          </ul>
+        </li>
+
+        <!-- Profile Sidebar -->
+        <li>
+          <div class="profile-details">
+            <div class="profile-content">
+              <img src="/static/profile.jpg" alt="Profile" />
+            </div>
+            <div class="profile-name">
+              <div class="profile-names">Admin</div>
+            </div>
+            <i class="bx bx-log-out"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- End Sidebar -->
+     <!-- Box konten disini -->
+    <div class="home-section">
+      <div class="home-content">
+        <i class="bx bx-menu"></i>
+        <span class="text">Menu</span>
+    </div>
+    <h1>Workout Training</h1>
+     <div class="base-konten">
+    <div class="table-container">
+     <div class="outer-wrapper">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <th>id</th>
+                    <th>Judul</th>
+                    <th style="max-width: 20px;">Isi konten</th>
+                    <th>Cover</th>
+                    <th>Gambar</th>
+                    <th>Handle</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Jump squat</td>
+                        <td >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores ut vitae repudiandae dolore dolorum corrupti sapiente earum quae cumque doloremque distinctio, ipsa, nostrum dolor eligendi similique, sit omnis tempora?</td>
+                        <div class="modal fade" id="imageModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <button type="button" class="closebtn" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Gambar</h5></div>
+                                <div class="modal-body">
+                                   
+                                  <img src="https://img.freepik.com/free-photo/sporty-woman-doing-squats-muscular-fitness-woman-military-sportswear-isolated-white-wall-fitness-healthy-lifestyle-concept_231208-10499.jpg?w=900&t=st=1702376181~exp=1702376781~hmac=1d2ae1a1da03aee201a15840a83f0dc0b01ae88360d0c8d1e0079930da8f63df" alt="Gambar" class="img-fluid">
+                                </div>
+                              </div>
+                            </div>
+                        <td><a href="#" data-toggle="modal" data-target="#imageModal1">squat jump.jpg</a></td>
+                        <td> 
+                            <button class="edit" style="border-radius: 8px;">Edit</button>
+                            <button class="del" style="border-radius: 8px;">Delete</button>
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>
+
+
+
+        </div>
+     </div> 
+
+    <!-- End konten -->
+
+    <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+          let arrowParent = e.target.parentElement.parentElement;
+          arrowParent.classList.toggle("showMenu");
+        });
+      }
+
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     
+  </body>
+</html>
