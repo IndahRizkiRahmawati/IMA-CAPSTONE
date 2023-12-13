@@ -67,6 +67,21 @@ input::-webkit-calendar-picker-indicator {
   margin: 0;
 }
 
+#bodywt {
+  background-image: url("/static/workout.jpg");
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 #headerlp {
   margin-bottom: 15%;
   padding-top: 20%;
@@ -122,6 +137,11 @@ input::-webkit-calendar-picker-indicator {
   box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);
 }
 
+#cardwt {
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);
+  max-height: 100px;
+}
+
 .card-body {
   background-color: #292929;
   color: white;
@@ -169,6 +189,15 @@ input::-webkit-calendar-picker-indicator {
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+#headerwt {
+  margin-bottom: 5%;
+  padding-top: 10%;
+}
+
+.headerwt {
+  color: white;
 }
 
 .image img {
