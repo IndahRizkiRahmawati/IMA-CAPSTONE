@@ -197,3 +197,15 @@ input::-webkit-calendar-picker-indicator {
 .has-text-centered {
   margin-top: 20px;
 }
+
+#cardwt img {
+  height: 68px;
+  width: 120px;
+}
+
+.main-content img {
+  max-width: 140%;
+  max-height: 500px;
+  width: 700px;
+  height: auto;
+}
