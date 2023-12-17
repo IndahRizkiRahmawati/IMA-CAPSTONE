@@ -8,6 +8,30 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- External CSS -->
     <link rel="stylesheet" href="/static/style3.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+      .btn{
+        width: 80px;
+        height: 40px;
+        margin-left: 20px;
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+        background-color: blue;
+        color: rgb(255, 255, 255);
+      }
+    </style>
   </head>
   <body>
     <!-- Sidebar -->
@@ -18,12 +42,12 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="#">
+          <a onclick="dashboard()">
             <i class="bx bx-grid-alt"></i>
             <span class="link_name">Dashboard</span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Dashboard</a></li>
+            <li><a class="link_name" onclick="dashboard()">Dashboard</a></li>
           </ul>
         </li>
         <li>
@@ -36,9 +60,9 @@
           </div>
           <ul class="sub-menu">
             <li><a class="link_name" href="#">Program</a></li>
-            <li><a href="#">Activity Tracker</a></li>
-            <li><a href="#">Health Eduction</a></li>
-            <li><a href="#">Workout Training</a></li>
+            <li><a onclick="atdash()">Activity Tracker</a></li>
+            <li><a onclick="hedash()">Health Eduction</a></li>
+            <li><a onclick="wtdash()">Workout Training</a></li>
           </ul>
         </li>
 
@@ -51,7 +75,9 @@
             <div class="profile-name">
               <div class="profile-names">Admin</div>
             </div>
-            <i class="bx bx-log-out"></i>
+            <a onclick="logout()">
+              <i class="bx bx-log-out"></i>
+            </a>
           </div>
         </li>
       </ul>
@@ -72,72 +98,65 @@
                 <thead>
                     <th>id</th>
                     <th>Nama</th>
-                    <th> tanggal</th>
+                    <th>Tanggal</th>
                     <th>Catatan</th>
                     <th>Handle</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>indah</td>
-                        <td>16 sept</td>
-                        <td>latihan bahu</td>
-                        <td> 
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ary</td>
-                        <td>7 juni</td>
-                        <td>latihan lengan</td>
-                        <td><button class="del">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>akmal</td>
-                        <td>7 juni</td>
-                        <td>latihan kaki</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>akmal indah ary</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
+                <tbody id="tbl-activity"> 
                 </tbody>
             </table>
-
-
-
         </div>
      </div> 
   
     <!-- End konten -->
 
     <script>
+      $(document).ready(function () {
+        show_activity(); 
+      });
+      function show_activity() {
+        $("#tbl-activity").empty();
+        $.ajax({
+          type: "GET",
+          url: "/atgetdata",
+          data: {},
+          success: function (response) {
+            console.log(response);
+            let rows = response["activity"];
+            for (let i = 0; i < rows.length; i++) {
+              let name = rows[i]["username"];
+              let date = rows[i]["date"];
+              let bucket = rows[i]["bucket"];
+              let number = i+1
+              let temp_html = `<tr>
+                        <td>${number}</td>
+                        <td>${name}</td>
+                        <td>${date}</td>
+                        <td>${bucket}</td>
+                        <td> 
+                            <button class="del" onclick="delete_user('${name}')">Delete</button>
+                        </td>
+                    </tr>
+                  `;
+              $("#tbl-activity").append(temp_html);
+            }
+          },
+        });
+      }
+
+      function delete_user(username) {
+        console.log(username)
+        $.ajax({
+          type: "POST",
+          url: "/atdash/delete",
+          data: { name_give: username },
+          success: function (response) {
+            alert(response["msg"]);
+            window.location.reload('/atdash');
+          },
+        });
+      }
+
       let arrow = document.querySelectorAll(".arrow");
       for (var i = 0; i < arrow.length; i++) {
         arrow[i].addEventListener("click", (e) => {
@@ -152,6 +171,25 @@
       sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("close");
       });
+
+      function atdash(){
+        window.location.replace('/atdash')
+      }
+      function hedash(){
+        window.location.replace('/hedash')
+      }
+      function wtdash(){
+        window.location.replace('/wtdash')
+      }
+      function dashboard(){
+        window.location.replace('/dashboard2')
+      }
+
+      function logout(){
+        document.cookie = 'mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        alert('You have been logged out!');
+        window.location.href = '/dashboard';
+      }
     </script>
   </body>
 </html>

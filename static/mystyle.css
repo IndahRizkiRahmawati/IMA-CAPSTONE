@@ -227,14 +227,22 @@ input::-webkit-calendar-picker-indicator {
   margin-top: 20px;
 }
 
-#cardwt img {
+#cardwt {
   height: 68px;
   width: 120px;
 }
 
-.main-content img {
+/* #cardwt img {
+  margin-top: -25px;
+} */
+
+.main-content {
   max-width: 140%;
   max-height: 500px;
   width: 700px;
-  height: auto;
+  height: 500px;
+}
+
+.main-content img {
+  margin-top: -70px;
 }

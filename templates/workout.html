@@ -1,29 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Log In | IMA Project</title>
+    <title>Workout Training</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <!-- bootstrap css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <!-- Bootstrap JavaScript (Popper.js and Bootstrap JS) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDE6fAByEZhblqdZ5uR7XAGa9WXLlO3U8" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
     <!-- Font Awesome CSS -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="{{url_for('static', filename='mystyle.css')}}" rel="stylesheet" />
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
   </head>
+  <style>
+    .container.scrollspy {
+      overflow: hidden;
+      background-color: white;
+      border-radius: 15px; /* Tepian melengkung */
+      padding: 20px; /* Padding sesuai kebutuhan Anda */
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .col-4 {
+        overflow-y: auto;
+        height: 100vh; /* Asumsikan tinggi viewport penuh */
+        position: sticky;
+        top: 0;
+        padding-top: 15px; /* Atur sesuai kebutuhan Anda */
+    }
+
+    .list-group {
+        width: 300px;
+        position: sticky;
+        top: 15px; /* Sesuaikan sesuai kebutuhan Anda */
+    }
+
+    .list-group-item{
+      margin-top: 20px;
+      box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .col-8 {
+        overflow-y: auto;
+        height: 100vh; /* Asumsikan tinggi viewport penuh */
+        padding-top: 15px; /* Atur sesuai kebutuhan Anda */
+    }
+
+    .scrollspy-example {
+        width: 100%;
+    }
+
+    /* Gaya tambahan untuk membuat efek sticky header di dalam col-8 */
+    .scrollspy-example h4 {
+        top: 0;
+
+        padding: 10px;
+        margin: 0;
+    }
+
+    /* Gaya tambahan untuk memberikan ruang antara header yang menyatu */
+    .scrollspy-example h4 + p {
+        margin-top: 10px;
+    }
+    
+  </style>
+  <script>
+    function showNextContent(currentIndex) {
+      var nextIndex = currentIndex;
+      var visibleDiv = $('.content-div:visible');
+      var nextDiv = $('.content-div').eq(nextIndex - 1);
+
+      if (nextDiv.length > 0) {
+          visibleDiv.hide();
+          nextDiv.show();
+      }
+  }
+
+    function logout(){
+      $.cookie('mytoken');
+      $.removeCookie('mytoken', { path: '/', expires: 1, sameSite: 'None', secure: true });
+      alert('You have been logged out!');
+      window.location.href = '/';
+    }
+    // dropdown navbar
+    function activity(){
+      window.location.replace('/activity')
+    }
+    function health(){
+      window.location.replace('/health_education')
+    }
+    function workout(){
+      window.location.replace('/workout_training')
+    }
+
+  </script>
   <body id="bodywt">
     <!-- Navbar -->
     <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow">
@@ -35,29 +115,37 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#home">Home</a>
+              <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="/">About</a>
             </li>
             <li class="nav-item">
               <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
-                <li><a class="dropdown-item" href="#">Health Education</a></li>
-                <li><a class="dropdown-item" href="#">Workout Training</a></li>
+                <li><a class="dropdown-item" onclick="activity()">Activity Tracker</a></li>
+                <li><a class="dropdown-item" onclick="health()">Health Education</a></li>
+                <li><a class="dropdown-item" onclick="workout()">Workout Training</a></li>
               </ul>
             </li>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#suggestion">Suggestion</a>
+              <a class="nav-link" href="/">Suggestion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#teams">Teams</a>
+              <a class="nav-link" href="/">Teams</a>
             </li>
             <li class="nav-item">
-              <button type="button" class="nav-link btn btn-danger" href="#Login">Logout</button>
+              {% if user_info %}
+                <a onclick="logout()">
+                  <button type="button" class="nav-link btn btn-danger">Logout</button>
+                </a>
+                {% else %}
+                <a href="/login">
+                  <button type="button" class="nav-link btn btn-danger">Login</button>
+                </a>
+              {% endif %}
             </li>
           </ul>
         </div>
@@ -75,53 +163,88 @@
     <!-- Akhir Header -->
 
     <!-- Konten -->
-    <div class="container mt-5">
-  <section class="jumbotron text-center">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="d-flex flex-column align-items-start">
-          
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
+    <!-- <div class="container mt-5">
+
+      <section class="jumbotron text-center">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="d-flex flex-column align-items-start">
+              
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\test.png" class="card-img-top" alt="..." />
+                </div>
+              </div>
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\test.png" class="card-img-top" alt="..." />
+                </div>
+              </div>
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\test.png" class="card-img-top" alt="..." />
+                </div>
+              </div>
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\test.png" class="card-img-top" alt="..." />
+                </div>
+              </div>
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\test.png" class="card-img-top" alt="..." />
+                </div>
+              </div>
+              <div class="col-md-12 mb-4">
+                <div class="card text-center" id="cardwt">
+                  <img src="\static\workout.jpg" class="card-img-top" alt="..." />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
-            </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
-            </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
-            </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
-            </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <div class="card text-center" id="cardwt">
-              <img src="\static\test.png" class="card-img-top" alt="..." />
+          <div class="col-md-10 mb-4">
+            <div class="card main-content">
+              <iframe src="https://www.youtube.com/embed/cbKkB3POqaY" frameborder="0"></iframe>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-10 mb-4">
-        <div class="main-content">
-          <img src="\static\test.png" class="card-img-top" alt="..." />
+      </section>
+    </div> -->
+    <!-- ---------------------------------------------- -->
+    <div class="container scrollspy">
+      <div class="row">
+        <div class="col-4">
+          <div id="list-example" class="list-group">
+              {% for workout in workouttrain %}
+              {% set cover = workout.cover %}
+              {% set id = workout.id %}
+              {% set judul = workout.judul %}
+              {% set catatan = workout.catatan %}
+              {% set link = workout.link %}
+              <a class="list-group-item list-group-item-action" href="#list-item-{{id}}" onclick="showNextContent('{{id|int}}')">
+                <img src="/static/{{cover}}" alt="">
+              </a>
+              {% endfor %}
+          </div>
+        </div>
+        <div class="col-8 bg-light">
+          <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" style="position:relative;height: 500px;;overflow:hide;">
+              {% for workout2 in workouttrain2 %}
+              {% set cover = workout2.cover %}
+              {% set id = workout2.id %}
+              {% set judul = workout2.judul %}
+              {% set catatan = workout2.catatan %}
+              {% set link = workout2.link %}
+              <div class="content-div" id="list-item-{{id}}" {% if loop.index != 1 %} style="display: none;" {% endif %}>
+                <iframe src="{{ link }}" frameborder="0" style="width: 762px; height: 450px;"></iframe>
+                <h2>{{ judul }}</h2>
+                <p>{{ catatan }}</p>
+              </div>
+              {% endfor %}
+          </div>
         </div>
       </div>
     </div>
-  </section>
-</div>
-
     <!-- Akhir Konten -->
     <!-- Footer -->
     <div id="footerlp">

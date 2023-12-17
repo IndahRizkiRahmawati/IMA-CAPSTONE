@@ -7,11 +7,11 @@
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
         
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
@@ -305,7 +305,7 @@
 
         .table-wrapper {
         border-collapse: collapse;
-        max-height: 500px;
+        max-height: 300px;
         overflow-y: scroll;
         border-radius: 1%;
         height: auto;
@@ -479,9 +479,6 @@
         th {
             padding: 10px;
         }
-
-        
-
     </style>
   </head>
   <body>
@@ -493,12 +490,12 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="#">
+          <a onclick="dashboard()">
             <i class="bx bx-grid-alt"></i>
             <span class="link_name">Dashboard</span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Dashboard</a></li>
+            <li><a class="link_name" onclick="dashboard()">Dashboard</a></li>
           </ul>
         </li>
         <li>
@@ -511,9 +508,9 @@
           </div>
           <ul class="sub-menu">
             <li><a class="link_name" href="#">Program</a></li>
-            <li><a href="#">Activity Tracker</a></li>
-            <li><a href="#">Health Eduction</a></li>
-            <li><a href="#">Workout Training</a></li>
+            <li><a onclick="atdash()">Activity Tracker</a></li>
+            <li><a onclick="hedash()">Health Eduction</a></li>
+            <li><a onclick="wtdash()">Workout Training</a></li>
           </ul>
         </li>
 
@@ -526,8 +523,10 @@
             <div class="profile-name">
               <div class="profile-names">Admin</div>
             </div>
-            <i class="bx bx-log-out"></i>
-          </div>
+            <a onclick="logout()">
+                <i class="bx bx-log-out"></i>
+            </a>
+        </div>
         </li>
       </ul>
     </div>
@@ -570,7 +569,7 @@
     </div>
     <div class="table-container" style="padding-bottom: 4px;">
      <div class="outer-wrapper">
-        <div class="table-wrapper">
+        <div class="table-wrapper" >
             <table>
                 <thead>
                     <th>ID</th>
@@ -578,63 +577,7 @@
                     <th>Tanggal bergabung</th>
                     <th>Handle</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>indah</td>
-                        <td>16 sept</td>
-                        
-                        <td> 
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ary</td>
-                        <td>7 juni</td>
-                        
-                        <td><button class="del">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>akmal</td>
-                        <td>7 juni</td>
-                        
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>akmal indah ary</td>
-                        <td>12 des</td>
-                        
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tfoot>
-                        <th>Total User :</th>
-                        <th></th>
-                        <th></th>
-                        <th>6</th>
-                    </tfoot>
+                <tbody id="table-user">
                 </tbody>
             </table>
         </div>
@@ -656,54 +599,13 @@
                     <th>Message</th>
                     <th>Handle</th>
                 </thead>
-                <tbody>
+                <tbody id="table-suggestion">
                     <tr>
                         <td>1</td>
                         <td>indah</td>
                         <td>16 sept</td>
                         <td>latihan bahu</td>
                         <td> 
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ary</td>
-                        <td>7 juni</td>
-                        <td>latihan lengan</td>
-                        <td><button class="del">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>akmal</td>
-                        <td>7 juni</td>
-                        <td>latihan kaki</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>akmal indah ary</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td> <button class="del">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
-                            <button class="del">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>akmal indah ary indah rizki rahmawati</td>
-                        <td>12 des</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea corrupti odio dolorem totam dicta maxime velit dignissimos reprehenderit molestias laboriosam repellat dolores ut, fuga rem repudiandae porro, facilis earum.</td>
-                        <td>
                             <button class="del">Delete</button>
                         </td>
                     </tr>
@@ -714,6 +616,96 @@
     <!--Akhir Suggestion box -->
 
     <script>
+      $(document).ready(function () {
+        show_user(); 
+        show_suggestion();
+      });
+      function show_user() {
+        $("#table-user").empty();
+        $.ajax({
+          type: "GET",
+          url: "/dashgetdata",
+          data: {},
+          success: function (response) {
+            console.log(response);
+            let rows = response["user"];
+            for (let i = 0; i < rows.length; i++) {
+              let name = rows[i]["name"];
+              let date = rows[i]["date"];
+              let num = i+1
+              let temp_html = `<tr >
+                        <td>${num}</td>
+                        <td>${name}</td>
+                        <td>${date}</td>
+                        
+                        <td> 
+                            <button class="del" onclick="delete_user('${name}')">Delete</button>
+                        </td>
+                      </tr>
+                  `;
+              $("#table-user").append(temp_html);
+            }
+          },
+        });
+      }
+
+      function show_suggestion() {
+        $("#table-suggestion").empty();
+        $.ajax({
+          type: "GET",
+          url: "/dashgetdata2",
+          data: {},
+          success: function (response) {
+            console.log(response);
+            let rows = response["suggestion"];
+            for (let i = 0; i < rows.length; i++) {
+              let name = rows[i]["name"];
+              let subject = rows[i]["subject"];
+              let message = rows[i]["message"];
+              let num = i+1
+              let temp_html = `<tr>
+                        <td>${num}</td>
+                        <td>${name}</td>
+                        <td>${subject}</td>
+                        <td>${message}</td>
+                        <td> 
+                            <button class="del" onclick="delete_user('${name}')">Delete</button>
+                        </td>
+                    </tr>
+                  `;
+              $("#table-suggestion").append(temp_html);
+            }
+          },
+        });
+      }
+
+      function delete_user(name) {
+        console.log(name)
+        $.ajax({
+          type: "POST",
+          url: "/dashboard/delete",
+          data: { name_give: name },
+          success: function (response) {
+            alert(response["msg"]);
+            window.location.reload('/dashboard2');
+          },
+        });
+      }
+
+      function delete_user(name) {
+        console.log(name)
+        $.ajax({
+          type: "POST",
+          url: "/dashboard/delete2",
+          data: { name_give: name },
+          success: function (response) {
+            alert(response["msg"]);
+            window.location.reload('/dashboard2');
+          },
+        });
+      }
+
+
       let arrow = document.querySelectorAll(".arrow");
       for (var i = 0; i < arrow.length; i++) {
         arrow[i].addEventListener("click", (e) => {
@@ -728,6 +720,25 @@
       sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("close");
       });
+
+      function atdash(){
+        window.location.replace('/atdash')
+      }
+      function hedash(){
+        window.location.replace('/hedash')
+      }
+      function wtdash(){
+        window.location.replace('/wtdash')
+      }
+      function dashboard(){
+        window.location.replace('/dashboard2')
+      }
+
+      function logout(){
+        document.cookie = 'mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        alert('You have been logged out!');
+        window.location.href = '/dashboard';
+      }
     </script>
   </body>
 </html>

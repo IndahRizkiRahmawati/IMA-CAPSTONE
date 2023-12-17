@@ -16,9 +16,6 @@
     <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet" />
 
     <script>
-      // {% if msg %}
-      //     alert("{{ msg }}")
-      // {% endif %}
       function sign_in() {
         let username = $("#input-username").val();
         let password = $("#input-password").val();
@@ -39,7 +36,8 @@
           $("#help-password-login").text("");
         }
 
-        console.log(username, password);
+        // console.log(username, password);
+
         $.ajax({
           type: "POST",
           url: "/sign_in",
@@ -117,9 +115,11 @@
       }
       function sign_up() {
         let username = $("#input-username").val();
+        let name = $("#input-name").val();
         let password = $("#input-password").val();
         let password2 = $("#input-password2").val();
-        console.log(username, password, password2);
+        let today = new Date().toISOString();
+        console.log(username, name, password, password2);
         console.log($("#help-id").attr("class"));
 
         if ($("#help-id").hasClass("is-danger")) {
@@ -157,13 +157,40 @@
           url: "/sign_up/save",
           data: {
             username_give: username,
+            name_give: name,
             password_give: password,
+            date_give: today,
           },
           success: function (response) {
             alert("Your are signed up! Nice!");
             window.location.replace("/login");
           },
         });
+      }
+
+      function time2str(date) {
+        let today = new Date();
+        let time = (today - date) / 1000 / 60; // minutes
+
+        if (time < 60) {
+          return parseInt(time) + " minutes ago";
+        }
+        time = time / 60; // hours
+        if (time < 24) {
+          return parseInt(time) + " hours ago";
+        }
+        time = time / 24; // days
+        if (time < 7) {
+          return parseInt(time) + " days ago";
+        }
+        return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
+      }
+
+      function clearInputs() {
+        $("#input-username").val("");
+        $("#input-name").val("");
+        $("#input-password").val("");
+        $("#input-password2").val("");
       }
     </script>
   </head>
@@ -199,7 +226,7 @@
                   <div class="mb-5">
                     <div class="field">
                       <div class="control has-icons-left">
-                        <input id="Name" class="input" type="text" placeholder="Name" />
+                        <input id="input-name" class="input" type="text" placeholder="Name" />
                         <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                       </div>
                     </div>
@@ -208,7 +235,7 @@
 
                 <div class="field">
                   <div class="control has-icons-left">
-                    <input id="input-password" class="input" type="password" placeholder="password" />
+                    <input id="input-password" class="input" type="password" placeholder="Password" />
                     <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
                   </div>
                   <p id="help-password" class="help is-hidden">Untuk kata sandi Anda, silakan masukkan 8-20 karakter, angka, atau karakter khusus berikut (!@#$%^&*)</p>
@@ -217,8 +244,10 @@
               <div id="div-sign-in-or-up" class="has-text-centered">
                 <nav class="level is-mobile">
                   <button class="level-item button" onclick="sign_in()">Sign In</button>
+                  <button class="level-item button" onclick="clearInputs()">Clear</button>
                   <button class="level-item button is-outlined" onclick="toggle_sign_up()">Register</button>
                 </nav>
+                <hr />
               </div>
 
               <div id="sign-up-box" class="is-hidden">

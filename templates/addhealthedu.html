@@ -85,11 +85,11 @@ html{
     display: flex;
     color: aliceblue;
     align-items: center;
-    height: 640px;
+    height: 930px;
     max-height: fit-content;
     max-width: 100%;
-  align-items: center; 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://img.freepik.com/premium-photo/healthy-food-fruits-almonds-orange-juice-fitness-flat-top-view_685977-617.jpg?w=900");
+    align-items: center; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://img.freepik.com/premium-photo/healthy-food-fruits-almonds-orange-juice-fitness-flat-top-view_685977-617.jpg?w=900");
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 8vh;
@@ -97,78 +97,67 @@ html{
     padding-left: 60px;
     padding-right: 60px;
     justify-content: center;
-    margin-top: 30px;
     margin-block-end: auto;
-   
 }
-
-
-
-
 </style>
 
 </head>
- <!-- Navbar -->
- <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow" style="background-color: #292929">
-    <div class="container">
-      <a class="navbar-brand" href="#">IMA Project</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
-              <li><a class="dropdown-item" href="#">Health Education</a></li>
-              <li><a class="dropdown-item" href="#">Workout Training</a></li>
-            </ul>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#suggestion">Suggestion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#teams">Teams</a>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="nav-link btn btn-danger" href="#Login">Login</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-<!-- Akhir Navbar -->
+<body>
   <div class="pembungkus">
     <div class="base">
         <h1 style="padding-bottom: 20px;">Tambah Health Education</h1>
         <h3 style="padding-bottom: 5px;">Judul</h3>
-        <input class="form-control " type="text" placeholder="masukkan judul"><br>
+        <input id="input-judul" class="form-control " type="text" placeholder="masukkan judul"><br>
         <div class="mb-3">
           <label id=" " for="formFile" class="form-label">Foto isi konten</label>
-          <input class="form-control" type="file" id="formFile">
+          <input id="input-gambar" class="form-control" type="file" id="formFile">
         </div>
         <h3 style="padding-bottom: 5px; ">Isi konten</h3>
-        <textarea class="form-control" style="height: 60px;" aria-label="With textarea" placeholder="isi konten"></textarea> <br>
+        <textarea id="input-catatan" class="form-control" style="height: 60px;" aria-label="With textarea" placeholder="isi konten"></textarea> <br>
 
-        <button type="button" class="btn btn-secondary float-end " >Cancel</button>
-        <button onclick="delete_bucket" type="button" style="margin-right: 15px; margin-bottom: 10px;" class="btn btn-outline-warning float-end custom-btn">Save</button>
+        <button type="button" class="btn btn-secondary float-end" onclick="cancle()" >Cancel</button>
+        <button type="button" style="margin-right: 15px; margin-bottom: 10px;" class="btn btn-outline-warning float-end custom-btn" onclick="tambahHE()">Save</button>
     </div>
     </div>
     
     </div>
 </div>
     </div>
-<body>
 
+<script>
+  function tambahHE(){
+    let judul = $("#input-judul").val();
+    let gambar = $("#input-gambar")[0].files[0];
+    let catatan = $("#input-catatan").val();
+    if (!judul || !gambar || !catatan) {
+        alert("Semua kolom harus diisi. Silakan lengkapi formulir.");
+    } else {
+        let form_data = new FormData();
+        form_data.append("judul_give", judul)
+        form_data.append("gambar_give", gambar)
+        form_data.append("catatan_give", catatan)
+
+        $.ajax({
+            type: 'POST',
+            url: '/tambah_he/save',
+            data: form_data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response.result === 'success') {
+                    alert(response.msg)
+                    window.location.replace('/hedash')
+                }
+            }
+        })
+    }
+  }
+
+  function cancle(){
+        window.location.replace('/hedash')
+  }
+</script>
     
 </body>
 </html>

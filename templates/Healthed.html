@@ -25,133 +25,127 @@
      <!-- JS -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-     <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet" />
-
 </head>
-
 <style>
-*{
-    margin: 0;
-}
-html{
-    scroll-behavior: smooth;
-}
-
-.mypic {
-    
-    width: 100%;
-    height: 320px;
-
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://img.freepik.com/free-photo/fresh-vegetables-placed-dark-table_1220-3145.jpg?w=1060&t=st=1702056316~exp=1702056916~hmac=f38931efb4be08ed626265da8e06cc878eb5d3c3f1cf86c7fbec9b84c5b4d823");
-    background-position: center;
-    background-size: cover;
-
-    color: white;
-    box-shadow: 0px 0px 8px 8px black;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 120px;
-    padding-bottom: 50px;
-    
+    *{
+        margin: 0;
     }
-.mypic > h1 {
-    font-size: 65px;
-}
-
-
-.pembungkus{
-    display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 60px;
-
-
-  align-items: center; 
-  background-image: linear-gradient(rgba(9, 0, 9, 0.7), rgba(0, 0, 0, 0.8)), url("https://img.freepik.com/free-photo/set-fresh-raw-vegetables-products-table-modern-kitchen-room-healthy-eating-organic-food_1157-41843.jpg?w=900&t=st=1702167969~exp=1702168569~hmac=200cf38a9475893bd9992d02651198894b91a4ca188ad3996fdb6f951a4aeec0");
-  background-size: 100%;
-    color: #a82424;
-
-    width: 100%;
-    height: auto;
-    min-height: 120vh;
-    padding-top: 120px;
-    padding-bottom: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-    justify-content: center;
-
-   
-}
-
-.box1{
-    transition: 1s;
-    border-radius: 20px;
-    flex-direction: row;
-    align-items: flex-start;
-    display:flex;
-    flex: 1 1 calc(12.5% - 20px);
-    max-width: calc(12.5% - 20px);
-    min-width: 300px;
-    background-color: #785240;
-    width: 95%;
-    max-width: 1500px;
-    height: 25vh;
-    padding: 15px;
-    border-radius: 10px;
-   
-    box-shadow: 0px 0px 8px 0px #080808;
-   
-    
-    
-    margin-top: 25px;
-    min-height: auto;
-    
-}
-
-.pict img{
-    /* flex-direction: row; */
-    width: 600px; /* Atur lebar gambar sesuai kebutuhan */
-  height: 20vh;
-  min-height: auto;
-  margin-right: 90px;
-  border-radius: 10px;
-
-    
-
-}
-
-.isi-content{
-    flex-direction: row;
-    object-fit: contain;
-    font-size: 13px;
+    html{
+        scroll-behavior: smooth;
+    }
+    .mypic {
+        width: 100%;
+        height: 320px;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://img.freepik.com/free-photo/fresh-vegetables-placed-dark-table_1220-3145.jpg?w=1060&t=st=1702056316~exp=1702056916~hmac=f38931efb4be08ed626265da8e06cc878eb5d3c3f1cf86c7fbec9b84c5b4d823");
+        background-position: center;
+        background-size: cover;
+        color: white;
+        box-shadow: 0px 0px 8px 8px black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 120px;
+        padding-bottom: 50px;
+    }
+    .mypic > h1 {
+        font-size: 65px;
+    }
+    .pembungkus{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 60px;
+        align-items: center; 
+        background-image: linear-gradient(rgba(9, 0, 9, 0.7), rgba(0, 0, 0, 0.8)), url("https://img.freepik.com/free-photo/set-fresh-raw-vegetables-products-table-modern-kitchen-room-healthy-eating-organic-food_1157-41843.jpg?w=900&t=st=1702167969~exp=1702168569~hmac=200cf38a9475893bd9992d02651198894b91a4ca188ad3996fdb6f951a4aeec0");
+        background-size: 100%;
+        color: #a82424;
+        width: 100%;
+        height: auto;
+        min-height: 120vh;
+        padding-top: 120px;
+        padding-bottom: 30px;
+        padding-left: 40px;
+        padding-right: 40px;
+        justify-content: center;
+    }
+    .box1{
+        transition: 1s;
+        border-radius: 20px;
+        flex-direction: row;
+        align-items: flex-start;
+        display:flex;
+        flex: 1 1 calc(12.5% - 20px);
+        max-width: calc(12.5% - 20px);
+        min-width: 300px;
+        background-color: #785240;
+        width: 95%;
+        max-width: 1500px;
+        height: 25vh;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 0px #080808;
+        margin-top: 25px;
+        min-height: auto;  
+    }
+    .pict img{
+        /* flex-direction: row; */
+        width: 600px; /* Atur lebar gambar sesuai kebutuhan */
     height: 20vh;
     min-height: auto;
-    display: inline;
-    padding: 2px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left:10px;
- 
-}
-
-.box2:hover{
-
-    background-color: #794343;
-    transition: 1s;
-    color: rgb(238, 226, 226);
-    border-radius: 20px;
-    transition: 2s;
+    margin-right: 90px;
+    border-radius: 10px; 
+    }
+    .isi-content{
+        flex-direction: row;
+        object-fit: contain;
+        font-size: 13px;
+        height: 20vh;
+        min-height: auto;
+        display: inline;
+        padding: 2px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left:10px;
+    }
+    .isi-content h1{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .box2:hover{
+        background-color: #794343;
+        transition: 1s;
+        color: rgb(238, 226, 226);
+        border-radius: 20px;
+        transition: 2s;
+    }
+    .health{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-evenly;
+        width: 100%;
+    }
     
-}
-
-
-
-
 </style>
+<script>
+    function logout(){
+        $.cookie('mytoken');
+        $.removeCookie('mytoken', { path: '/', expires: 1, sameSite: 'None', secure: true });
+        alert('You have been logged out!');
+        window.location.href = '/';
+    }
+    // dropdown navbar
+    function activity(){
+        window.location.replace('/activity')
+    }
+    function health(){
+        window.location.replace('/health_education')
+    }
+    function workout(){
+        window.location.replace('/workout_training')
+    }
+</script>
 <body >
      <!-- Navbar -->
      <nav id="navbar" class="is-fixed-top navbar navbar-expand-lg navbar-dark shadow" style="background-color: #292929">
@@ -163,29 +157,37 @@ html{
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="/">About</a>
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
-                  <li><a class="dropdown-item" href="#">Health Education</a></li>
-                  <li><a class="dropdown-item" href="#">Workout Training</a></li>
+                  <li><a class="dropdown-item" onclick="activity()">Activity Tracker</a></li>
+                  <li><a class="dropdown-item" onclick="health()">Health Education</a></li>
+                  <li><a class="dropdown-item" onclick="workout()">Workout Training</a></li>
                 </ul>
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#suggestion">Suggestion</a>
+                <a class="nav-link" href="/">Suggestion</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#teams">Teams</a>
+                <a class="nav-link" href="/">Teams</a>
               </li>
               <li class="nav-item">
-                <button type="button" class="nav-link btn btn-danger" href="#Login">Login</button>
+                {% if user_info %}
+                    <a onclick="logout()">
+                        <button type="button" class="nav-link btn btn-danger">Logout</button>
+                    </a>
+                    {% else %}
+                    <a href="/login">
+                        <button type="button" class="nav-link btn btn-danger">Login</button>
+                    </a>
+                {% endif %}
               </li>
             </ul>
           </div>
@@ -200,125 +202,25 @@ html{
         <h4>Fun fact about healthyness would be here</h4>
     </div>
       <!-- Akhir Header -->
-      <div class="pembungkus">
-        <div class="row" style="padding-top: 190px;">
-        <div class="col-lg-6 col-md-12" style="padding-top: 10px; padding-left:20px;">
-        <div class="box1" style="order: 1";>
-            <div class="pict">
-                <img src="https://img.freepik.com/free-photo/woman-holding-glass-filled-with-water-copy-space_23-2148728798.jpg?w=1060&t=st=1702067186~exp=1702067786~hmac=d03662c1dec560929420eaa0afdaca1c792f097a94874602e7c74ca6733c4f09" alt="">
-            </div>
-            <div class="isi-content">
-                <p>Content</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-12" style="padding-top: 10px; padding-left:20px;">
-        <div class="box1"style="order: 3;">
-            <div class="pict">
-                <img src="https://img.freepik.com/free-photo/purple-potato-tea-table_1150-28295.jpg?w=900&t=st=1702071931~exp=1702072531~hmac=bf19b2aa57da6a922483b81a7e7373b82cbdd4f875e62b4fc83db555a74a4353" alt="">
-            </div>
-            <div class="isi-content">
-                <p>Content</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-12" style="padding-top: 5px;padding-left:20px;">
-        <div class="box1"style="order: 2;">
-            <div class="pict">
-                <img src="https://img.freepik.com/free-photo/young-guy-sleeping-bed-wearing-smartwatch-sleep-tracker_1163-5232.jpg?w=900&t=st=1702071980~exp=1702072580~hmac=344aa3d76be565389e0cbba855e9900d5389e87de9826436aa3b7c26c0931db7" alt="">
-            </div>
-            <div class="isi-content">
-            <p>Content</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-        <div class="box1">
-            <div class="pict">
-                <img src="https://img.freepik.com/free-photo/closeup-alarm-clock-blurred-food-background_169016-24691.jpg?w=900&t=st=1702072063~exp=1702072663~hmac=d6e9c490a898d351e8f057218f9818bf2713278636aee0c19c6894a9d921fe55" alt="">
-            </div>
-            <div class="isi-content">
-                <p>Content</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-        <div class="box1">
-        <div class="pict">
-            <img src="https://img.freepik.com/free-photo/young-asian-healthy-woman-with-headphones-doing-exercise-indoor-home-meditating-living-room-sitting-yoga-mat-making-meditation-gesture_141793-130873.jpg?w=826&t=st=1702115974~exp=1702116574~hmac=f4946e6d1542c01884e91942ed87153bd49c53d8daff13eac0ddf73642303dfb" alt="">
-            </div>
-            <div class="isi-content">
-        <p>Content</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-            </div>
-            </div>
-        </div> 
-                <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-                <div class="box1">
+    <div class="pembungkus">
+        <div class="row " style="padding-top: 190px;">
+            <div class="col-4 health" style="padding-top: 10px; padding-left:20px;">
+                {% for bebas in healthedu %}
+                {% set judul = bebas.judul %}
+                {% set gambar = bebas.gambar %}
+                {% set deskripsi = bebas.catatan %}
+                <div class="box1" style="order: 1";>
                     <div class="pict">
-                        <img src="https://img.freepik.com/free-photo/people-sports-fitness-strength-endurance-concept-stylish-brunette-athletic-girl-sportswear-exercising-spacious-hall-by-window-doing-elbow-plank-green-yoga-mat-wooden-floor_344912-1068.jpg?size=626&ext=jpg&ga=GA1.1.574242163.1677997316&semt=sph" alt="">
+                        <img src="/static/{{gambar}}" alt="">
                     </div>
                     <div class="isi-content">
-                        <p>Content</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
+                        <h1>{{judul}}</h1>
+                        <p>{{deskripsi}}</p>
                     </div>
                 </div>
-                </div>
-                <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-                <div class="box1">
-                    <div class="pict">
-                        <img src="https://img.freepik.com/free-photo/closeup-alarm-clock-blurred-food-background_169016-24691.jpg?w=900&t=st=1702072063~exp=1702072663~hmac=d6e9c490a898d351e8f057218f9818bf2713278636aee0c19c6894a9d921fe55" alt="">
-                    </div>
-                    <div class="isi-content">
-                        <p>Content</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-                <div class="box1">
-                    <div class="pict">
-                        <img src="https://img.freepik.com/free-photo/closeup-alarm-clock-blurred-food-background_169016-24691.jpg?w=900&t=st=1702072063~exp=1702072663~hmac=d6e9c490a898d351e8f057218f9818bf2713278636aee0c19c6894a9d921fe55" alt="">
-                    </div>
-                    <div class="isi-content">
-                        <p>Content</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-                <div class="box1">
-                    <div class="pict">
-                        <img src="https://img.freepik.com/free-photo/closeup-alarm-clock-blurred-food-background_169016-24691.jpg?w=900&t=st=1702072063~exp=1702072663~hmac=d6e9c490a898d351e8f057218f9818bf2713278636aee0c19c6894a9d921fe55" alt="">
-                    </div>
-                    <div class="isi-content">
-                        <p>Content</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-12"style="padding-top: 5px; padding-left:20px;">
-                <div class="box1">
-                    <div class="pict">
-                        <img src="https://img.freepik.com/free-photo/closeup-alarm-clock-blurred-food-background_169016-24691.jpg?w=900&t=st=1702072063~exp=1702072663~hmac=d6e9c490a898d351e8f057218f9818bf2713278636aee0c19c6894a9d921fe55" alt="">
-                    </div>
-                    <div class="isi-content">
-                        <p>Content</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur maxime quia ipsam ut non quidem suscipit veniam? Culpa dolore reiciendis nobis natus odio ducimus id optio odit minima, eos esse?</p>
-                    </div>
-                </div>
-                </div>
-            
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    </div>
-      </div>
-  
-      
-    
- 
 </body>
 </html>

@@ -40,8 +40,8 @@
         }
 
         body{
-        background-color: #292929;
-       }
+            background-color: #292929;
+        }
 
         .mybox {
             color: aliceblue;
@@ -82,84 +82,64 @@
         }
 
         .custom-btn {
-border-color: #D9CBC4;
-  
-  color: #D9CBC4;
-  transition: background-color 0.3s ease;
-}
-.customadd-btn {
-border-color: #D9CBC4;
-background-color: #D9CBC4;
-  
-  color: #2c1608;
-  transition: background-color 0.3s ease;
-}
-
-.custom-btn:hover {
-    border-color: #D9CBC4;
-  background-color: #D9CBC4;
-  color: #332f2f;
-}
-
-.customadd-btn:hover{
-    border-color: #D9CBC4;
-  background-color:#7e7774 ;
-  color: #f5f1f1;
-}
-
-
-    </style>
-    <script>
-        $(document).ready(function () {
-            show_bucket();
-        });
-        function show_bucket(){
-            // $('#bucket-list').empty();
-            $.ajax({
-                type: "GET",
-                url: "/bucket",
-                data: {}, 
-                success: function (response) {
-                    let rows = response['buckets'];
-                    for(let i=0; i < rows.length; i++) {
-                        let bucket = rows[i]['bucket'];
-                        let num = rows[i]['num'];
-                        let done = rows[i]['done'];
-                        let temp_html= '';
-
-                        if (done === 0){
-                            temp_html = `
-                            <li>
-            <h2>✏️ ${bucket}</h2>
-            <button onclick="done_bucket(${num})" type="button" class="btn btn-outline-warning" style="margin-right:10px;"">Done!</button> <br>
-            <button onclick="delete_bucket(${num})" type="button" class="btn btn-outline-warning">Delete</button>
-        </li>
-                        `;
-                        } else{
-                            temp_html = `
-                            <li>
-            <h2 class="done">✏️ ${bucket}</h2>
-            <button onclick="delete_bucket(${num})" type="button" class="btn btn-outline-warning">Delete</button>
-        </li>
-            `;
-                        }
-                        $('#bucket-list').append(temp_html);
-                    }
-                }
-            });
+            border-color: #D9CBC4;
+            color: #D9CBC4;
+            transition: background-color 0.3s ease;
         }
-        function save_bucket(){
+        .customadd-btn {
+            border-color: #D9CBC4;
+            background-color: #D9CBC4;
+            color: #2c1608;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            border-color: #D9CBC4;
+            background-color: #D9CBC4;
+            color: #332f2f;
+        }
+
+        .customadd-btn:hover{
+            border-color: #D9CBC4;
+            background-color:#7e7774 ;
+            color: #f5f1f1;
+        }
+    </style>
+
+    <script>
+        function save_bucket(username){
             let bucket = $ ('#bucket').val();
-            $.ajaxwindow.location.reload();({
+            let today = new Date().toISOString();
+            console.log(username)
+            $.ajax({
                 type: "POST",
                 url: "/bucket",
-                data: {bucket_give: bucket },
+                data: {bucket_give: bucket, date_give: today, user_give: username},
                 success: function (response) {
                     alert(response["msg"]);
+                    window.location.reload();
                     
                 }
             });
         }
+        function time2str(date) {
+            let today = new Date();
+            let time = (today - date) / 1000 / 60; // minutes
+
+            if (time < 60) {
+            return parseInt(time) + " minutes ago";
+            }
+            time = time / 60; // hours
+            if (time < 24) {
+            return parseInt(time) + " hours ago";
+            }
+            time = time / 24; // days
+            if (time < 7) {
+            return parseInt(time) + " days ago";
+            }
+            return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
+        }
+
         function done_bucket(num){
             $.ajax({
                 type: "POST",
@@ -183,6 +163,24 @@ background-color: #D9CBC4;
             });
         }
 
+        function logout(){
+            // $.cookie('mytoken');
+            // $.removeCookie('mytoken', { path: '/', expires: 1, sameSite: 'None', secure: true });
+            document.cookie = 'mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            alert('You have been logged out!');
+            window.location.href = '/';
+        }
+
+        // dropdown navbar
+        function activity(){
+            window.location.replace('/activity')
+        }
+        function health(){
+            window.location.replace('/health_education')
+        }
+        function workout(){
+            window.location.replace('/workout_training')
+        }
     </script>
 </head>
 <body>
@@ -196,29 +194,37 @@ background-color: #D9CBC4;
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="/">About</a>
                   </li>
                   <li class="nav-item">
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Program </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
-                      <li><a class="dropdown-item" href="#">Health Education</a></li>
-                      <li><a class="dropdown-item" href="#">Workout Training</a></li>
+                      <li><a class="dropdown-item" onclick="activity()">Activity Tracker</a></li>
+                      <li><a class="dropdown-item" onclick="health()">Health Education</a></li>
+                      <li><a class="dropdown-item" onclick="workout()">Workout Training</a></li>
                     </ul>
                   </li>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#suggestion">Suggestion</a>
+                    <a class="nav-link" href="/">Suggestion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#teams">Teams</a>
+                    <a class="nav-link" href="/">Teams</a>
                   </li>
                   <li class="nav-item">
-                    <button type="button" class="nav-link btn btn-danger" href="#Login">Login</button>
+                    {% if user_info %}
+                        <a onclick="logout()">
+                            <button type="button" class="nav-link btn btn-danger">Logout</button>
+                        </a>
+                        {% else %}
+                        <a href="/login">
+                            <button type="button" class="nav-link btn btn-danger">Login</button>
+                        </a>
+                    {% endif %}
                   </li>
                 </ul>
               </div>
@@ -232,25 +238,28 @@ background-color: #D9CBC4;
     <div class="mybox">
         <div class="mybucket">
             <input id="bucket" class="form-control" type="text" placeholder="Add your activity here">
-            <button onclick="save_bucket()" type="button" class="btn btn-warning customadd-btn">Add</button>
+            <button onclick="save_bucket('{{user_info.username}}')" type="button" class="btn btn-warning customadd-btn">Add</button>
         </div>
     </div>
     <div class="mybox" id="bucket-list">
+        {{activity_user.username}}
+        {% for activity in activity_user %}
+        {% set num = activity.num %}
+        {% set bucket = activity.bucket%}
+        {% set done = activity.done %}
+        {% if done == 0 %}
         <li>
-            <h2>✏️ squat jump 20 minutes</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
+            <h2>✏️ {{bucket}}</h2>
+            <button onclick="done_bucket('{{num}}')" type="button" class="btn btn-outline-warning" style="margin-right:10px;"">Done!</button> <br>
+            <button onclick="delete_bucket('{{num}}')" type="button" class="btn btn-outline-warning">Delete</button>
         </li>
+        {% else %}
         <li>
-            <h2>✏️ breakfast at 08.00</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
+            <h2 class="done">✏️ {{bucket}}</h2>
+            <button onclick="delete_bucket('{{num}}')" type="button" class="btn btn-outline-warning">Delete</button>
         </li>
-        <li>
-            <h2>✏️ walking 45 minutes</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-warning custom-btn" style="margin-right:10px;">Done!</button>
-            <button onclick="delete_bucket" type="button" class="btn btn-outline-warning custom-btn">Delete</button>
-        </li>
+        {% endif %}
+        {% endfor %}
     </div>
 </body>
 </html>
