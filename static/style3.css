@@ -290,7 +290,7 @@ h1 {
 
 .table-container {
   width: fit-content;
-  max-width: 100%;
+  /* max-width: 100%; */
   overflow-x: hidden;
   border-radius: 10px;
  
@@ -328,6 +328,7 @@ td {
   padding: 7px;
   padding-left: 10px;
   font-size: 8;
+  word-break: break-word;
 }
 th,
 td {
@@ -335,7 +336,9 @@ td {
   align-items: center;
   overflow: auto;
   padding: 10px;
+  
 }
+
 th {
  
   max-height: fit-content;
@@ -346,7 +349,9 @@ th {
         align-items: center;
         text-align: center;
 }
-
+tr{
+  border-bottom: 1px solid rgb(150, 149, 149);
+}
 .modal {
   display: none;
   position: fixed;
@@ -422,7 +427,7 @@ th {
 
 .modal-body img {
   width: 100%;
-  height: auto;
+  height: 300px;
   display: block;
 }
 
@@ -434,9 +439,11 @@ button {
   border-radius: 8px;
   background-color: #ffffff;
   transition: background-color 0.3s ease;
+  
 }
 .del {
   color: #f71e1e;
+
 }
 
 button.del:hover {
@@ -455,3 +462,8 @@ button.edit:hover {
 .gambar-konten {
   cursor: pointer;
 }
+
+a{
+  text-decoration: none;
+}
+

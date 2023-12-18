@@ -137,13 +137,13 @@
             // Unique modal ID using row index
             let modalId = `exampleModal${i}`;
 
-            let temp_html = `<tr>
+            let temp_html = `<tr style="border-bottom: 1px solid rgb(150, 149, 149);">
                 <td>${number}</td>
-                <td>${judul}</td>
-                <td>${catatan}</td>
-                <td style="white-space: nowrap; overflow: hidden;">
+                <td style="width:10%;">${judul}</td>
+                <td style="width:50%;">${catatan}</td>
+                <td style="word-break: normal; overflow: hidden; width:10%;">
                   <!-- Button to trigger modal -->
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#${modalId}">${cover}</button>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#${modalId}"><a href="#${modalId}">gambar</a></button>
                   
                   <!-- Modal -->
                   <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,12 +159,12 @@
                     </div>
                   </div>
                 </td>
-                <td>${link}</td>
+                <td style="width:20%;"><a href="${link}" target="_blank">${link}<a></td>
                 <td> 
                   <a href="/wtdash/edit/${id}">
-                    <button class="edit" style="border-radius: 8px;">Edit</button>
+                    <button class="edit" style="border-radius: 8px; width:fit-content;">Edit</button>
                   </a>
-                  <button class="del" style="border-radius: 8px;" onclick="delete_user('${judul}')">Delete</button>
+                  <button class="del" style="border-radius: 8px; width:fit-content;" onclick="delete_user('${judul}')">Delete</button>
                 </td>
               </tr>
             `;

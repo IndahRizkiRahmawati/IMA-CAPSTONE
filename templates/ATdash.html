@@ -99,7 +99,7 @@
                     <th>id</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
-                    <th>Catatan</th>
+                    <th style="width: 20%;">Catatan</th>
                     <th style="padding-left: 10px;">Handle</th>
                 </thead>
                 <tbody id="tbl-activity"> 
@@ -128,13 +128,13 @@
               let date = rows[i]["date"];
               let bucket = rows[i]["bucket"];
               let number = i+1
-              let temp_html = `<tr>
+              let temp_html = `<tr style="border-bottom: 1px solid rgb(150, 149, 149);">
                         <td>${number}</td>
                         <td>${name}</td>
-                        <td>${date}</td>
-                        <td>${bucket}</td>
+                        <td style="width:20%;">${date}</td>
+                        <td style="width:40%;">${bucket}</td>
                         <td> 
-                            <button class="del" style="border-radius: 8px;"  onclick="delete_user('${name}')">Delete</button>
+                            <button class="del" style="border-radius: 8px; width:fit-content;"  onclick="delete_user('${name}')">Delete</button>
                         </td>
                     </tr>
                   `;
