@@ -10,8 +10,13 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://arysanjaya:testing1234@cluster0.7irhzom.mongodb.net/?retryWrites=true&w=majority')
-db = client.dbimaproject
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+MONGODB_URI = os.environ.get("MONGODB_URI")
+DB_NAME =  os.environ.get("DB_NAME")
+
+client = MongoClient(MONGODB_URI)
+db = client[DB_NAME]
 
 SECRET_KEY = 'imaproject'
 
@@ -226,7 +231,10 @@ def dashboard():
 # dashboard
 @app.route('/dashboard2')
 def dashboard2():
-   return render_template('admindash.html')
+   at = db.activity.count_documents({})
+   he = db.healthedu.count_documents({})
+   wt = db.workouttrain.count_documents({})
+   return render_template('admindash.html', at=at, he=he, wt=wt)
 
 @app.route('/dashgetdata', methods=['GET'])
 def dashgetdata():
