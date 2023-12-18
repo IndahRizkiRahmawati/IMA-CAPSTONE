@@ -269,6 +269,7 @@
 .home-content .text {
   color: #000000;
   font-size: 35px;
+  cursor: pointer;
 }
 
 .home-content .bx-menu {
@@ -288,41 +289,62 @@ h1 {
 }
 
 .table-container {
-  max-width: 1600px;
+  width: fit-content;
+  max-width: 100%;
   overflow-x: hidden;
+  border-radius: 10px;
+ 
 }
 
 .table-wrapper {
   border-collapse: collapse;
-  max-height: 700px;
+  max-height: 300px;
   overflow-y: scroll;
+  border-radius: 1%;
+  height: auto;
+  position: relative;
+  margin-bottom: 10%;
+ 
 }
 
 .outer-wrapper {
   border: 2px saddlebrown;
-  box-shadow: 0px 0px 6px rgb(91, 87, 85);
-  margin: 20px;
-  border-radius: 10px;
+        box-shadow: 0px 0px 6px rgb(91, 87, 85);
+        margin: 20px;
+        border-radius: 10px;
+  
+}
+
+#head{
+  position: sticky;
+  top: 0;
+  background-color: #000000;
+  z-index: 1;
+  margin-top: 10px;
 }
 
 td {
+  width: fit-content;
   padding: 7px;
   padding-left: 10px;
+  font-size: 8;
 }
 th,
 td {
   border-bottom: 1px solid rgb(150, 149, 149);
   align-items: center;
   overflow: auto;
+  padding: 10px;
 }
 th {
+ 
   max-height: fit-content;
-  padding: 7px;
-  position: sticky;
-  top: 0px;
-  background-color: rgb(235, 178, 131);
-  align-items: center;
-  text-align: center;
+        padding: 10px;
+        position: sticky;
+        top: 0px;
+        background-color: rgb(235, 178, 131);
+        align-items: center;
+        text-align: center;
 }
 
 .modal {

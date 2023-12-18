@@ -44,9 +44,9 @@
         <li>
           <a onclick="dashboard()">
             <i class="bx bx-grid-alt"></i>
-            <span class="link_name">Dashboard</span>
+            <span class="link_name" style="cursor: pointer;">Dashboard</span>
           </a>
-          <ul class="sub-menu blank">
+          <ul class="sub-menu blank" style="cursor: pointer;">
             <li><a class="link_name" onclick="dashboard()">Dashboard</a></li>
           </ul>
         </li>
@@ -58,11 +58,11 @@
             </a>
             <i class="bx bx-chevron-down arrow"></i>
           </div>
-          <ul class="sub-menu">
+          <ul class="sub-menu" style="cursor: pointer;">
             <li><a class="link_name" href="#">Program</a></li>
-            <li><a onclick="atdash()">Activity Tracker</a></li>
-            <li><a onclick="hedash()">Health Eduction</a></li>
-            <li><a onclick="wtdash()">Workout Training</a></li>
+            <li><a onclick="atdash()" style="cursor: pointer;">Activity Tracker</a></li>
+            <li><a onclick="hedash()" style="cursor: pointer;">Health Eduction</a></li>
+            <li><a onclick="wtdash()"style="cursor: pointer;">Workout Training</a></li>
           </ul>
         </li>
 
@@ -91,7 +91,7 @@
     </div>
     <h1>Activity Tracker</h1>
     <!-- isi kontennya disini -->
-    <div class="table-container">
+    <div class="table-container" style="justify-content: center;">
      <div class="outer-wrapper">
         <div class="table-wrapper">
             <table>
@@ -100,7 +100,7 @@
                     <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Catatan</th>
-                    <th>Handle</th>
+                    <th style="padding-left: 10px;">Handle</th>
                 </thead>
                 <tbody id="tbl-activity"> 
                 </tbody>
@@ -134,7 +134,7 @@
                         <td>${date}</td>
                         <td>${bucket}</td>
                         <td> 
-                            <button class="del" onclick="delete_user('${name}')">Delete</button>
+                            <button class="del" style="border-radius: 8px;"  onclick="delete_user('${name}')">Delete</button>
                         </td>
                     </tr>
                   `;
